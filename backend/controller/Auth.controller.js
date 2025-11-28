@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 // Register Controller
 export const registerController = async (req, res) => {
     try {
-        const { name, email, password } = req.body;
+        const { name, email, password, role } = req.body;
 
         if (!name || !email || !password) {
             return res.status(400).json({ message: "All fields are required" });
@@ -17,9 +17,9 @@ export const registerController = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = await User.create({ name, email, password: hashedPassword });
+        const newUser = await User.create({ name, email, password: hashedPassword, role });
 
-        const token = jwt.sign({ _id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+        const token = jwt.sign({ userId: newUser._id, role: newUser.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
@@ -28,12 +28,12 @@ export const registerController = async (req, res) => {
         });
         res.status(201).json({ message: "User registered successfully", user: newUser });
 
-    } 
+    }
     catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal server error", error });
     }
-}; 
+};
 
 // Login Controller
 export const loginController = async (req, res) => {
@@ -54,28 +54,28 @@ export const loginController = async (req, res) => {
             return res.status(400).json({ message: "Invalid password" });
         }
 
-        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+        const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
         res.cookie("token", token, {
             httpOnly: true,
             secure: true,
             sameSite: "strict",
             maxAge: 7 * 24 * 60 * 60 * 1000,
         });
-        res.status(200).json({ message: "User logged in successfully", user });
+        res.status(200).json({ message: "User logged in successfully", user, role });
 
-    } 
+    }
     catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal server error", error });
     }
-}; 
+};
 
 // logout controller
 export const logoutController = async (req, res) => {
     try {
         res.clearCookie("token");
         res.status(200).json({ message: "User logged out successfully" });
-    } 
+    }
     catch (error) {
         console.error(error);
         res.status(500).json({ message: "Internal server error", error });
