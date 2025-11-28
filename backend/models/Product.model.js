@@ -4,6 +4,8 @@ const productSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
+        trim: true,
+        maxlength: [100, "Title must be at most 100 characters"],
     },
     description: {
         type: String,
@@ -15,31 +17,31 @@ const productSchema = new mongoose.Schema({
     },
     discountPrice: {
         type: Number,
-        required: true,
     },
     stock: {
         type: Number,
         required: true,
+        default: 0,
     },
-    image: {
-        type: String,
-        required: true,
-    },
+    image: [ {
+        public_id: String,
+        secure_url: String,
+    }],
     category: {
         type: String,
         required: true,
+        index: true, 
     },
     brand: {
         type: String,
-        required: true,
     },
     rating: {
         type: Number,
-        required: true,
+        default: 0,
     },
     reviews: {
         type: Array,
-        required: true,
+        default: [],
     }
 }, {
     timestamps: true
