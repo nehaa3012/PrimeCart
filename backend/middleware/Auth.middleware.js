@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.model.js";
 
-export const protectRoute = async (req, res, next) => {
+export const isAuthenticated = async (req, res, next) => {
     try {
         const token = req.cookies.token;
 
         if (!token) {
-            return res.status(401).json({ success: false, message: "Unauthorized - No Token Provided" });
+            return res.status(401).json({ success: false, message: "Unauthorized - Please login to access this resource" });
         }
 
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -20,20 +20,12 @@ export const protectRoute = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({ success: false, message: "User not found" });
         }
-
+   
         req.user = user;
 
         next();
     } catch (error) {
-        console.log("Error in protectRoute middleware: ", error.message);
+        console.log("Error in isAuthenticated middleware: ", error.message);
         res.status(500).json({ success: false, message: "Internal server error" });
-    }
-};
-
-export const adminRoute = (req, res, next) => {
-    if (req.user && req.user.role === "Admin") {
-        next();
-    } else {
-        return res.status(403).json({ success: false, message: "Access denied - Admin only" });
     }
 };
