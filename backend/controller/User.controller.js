@@ -25,6 +25,20 @@ export const updateUserProfile = async (req, res) => {
   user.name = req.body.name || user.name;
   user.email = req.body.email || user.email;
 
+  const files = getFilesArray(req);
+
+  if (files.length > 0) {
+    if(user.avatar?.public_id){
+      await deletefromCloudinary(user.avatar.public_id);
+    }
+    const uploadedImage = await uploadtoCloudinary(files[0].buffer, "avatars");
+  
+    user.avatar = {
+      public_id: uploadedImage.public_id,
+      secure_url: uploadedImage.secure_url,
+    };
+  }
+
   await user.save();
 
   res.status(200).json({

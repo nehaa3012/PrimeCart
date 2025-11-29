@@ -12,10 +12,12 @@
   "type": "module",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "^2.8.0",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^9.0.0",
+    "multer": "^2.0.2",
     "react-hook-form": "^7.66.1",
     "react-hot-toast": "^2.6.0"
   }

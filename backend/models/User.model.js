@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
         enum: ["User", "Admin"],
         default: "User",
         required:[ true, "Role is required"],
+    },
+    avatar: {
+        public_id: String,
+        secure_url: String,
     }
 }, {
     timestamps: true
