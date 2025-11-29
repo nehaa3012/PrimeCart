@@ -1,4 +1,5 @@
 import Review from "../models/Review.model.js";
+import Product from "../models/Product.model.js";
 
 export const addReview = async (req, res) => {
     const review = await Review.create({
@@ -7,6 +8,11 @@ export const addReview = async (req, res) => {
         rating: req.body.rating,
         comment: req.body.comment,
     });
+
+    await Product.findByIdAndUpdate(req.params.productId, {
+        $push: { reviews: review._id },
+    });
+
     res.status(201).json({
         success: true,
         review,

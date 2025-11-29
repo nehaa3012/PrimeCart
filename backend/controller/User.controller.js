@@ -1,5 +1,7 @@
 import User from "../models/User.model.js";
 import Order from "../models/Order.model.js";
+import { getFilesArray } from "../utils/Multer.js";
+import { deletefromCloudinary, uploadtoCloudinary } from "../utils/Cloudinary.js";
 
 // Get user profile controller
 export const getUserProfile = async (req, res) => {
@@ -28,11 +30,11 @@ export const updateUserProfile = async (req, res) => {
   const files = getFilesArray(req);
 
   if (files.length > 0) {
-    if(user.avatar?.public_id){
+    if (user.avatar?.public_id) {
       await deletefromCloudinary(user.avatar.public_id);
     }
     const uploadedImage = await uploadtoCloudinary(files[0].buffer, "avatars");
-  
+
     user.avatar = {
       public_id: uploadedImage.public_id,
       secure_url: uploadedImage.secure_url,

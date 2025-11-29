@@ -23,14 +23,14 @@ const productSchema = new mongoose.Schema({
         required: true,
         default: 0,
     },
-    image: [ {
+    image: [{
         public_id: String,
         secure_url: String,
     }],
     category: {
         type: String,
         required: true,
-        index: true, 
+        index: true,
     },
     brand: {
         type: String,
@@ -39,10 +39,12 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    reviews: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Review",
-    } 
+    reviews: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Review",
+        }
+    ]
 }, {
     timestamps: true
 });
