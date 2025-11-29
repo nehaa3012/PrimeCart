@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 // Register Controller
 export const registerController = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password, address, phone, role } = req.body;
 
         if (!name || !email || !password) {
             return res.status(400).json({ message: "All fields are required" });
@@ -16,8 +16,7 @@ export const registerController = async (req, res) => {
             return res.status(400).json({ message: "User already exists" });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = await User.create({ name, email, password: hashedPassword, role });
+        const newUser = await User.create({ name, email, password, address, phone, role });
 
         const token = jwt.sign({ userId: newUser._id, role: newUser.role }, process.env.JWT_SECRET, { expiresIn: "1d" });
         res.cookie("token", token, {
@@ -44,7 +43,7 @@ export const loginController = async (req, res) => {
             return res.status(400).json({ message: "All fields are required" });
         }
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select("+password");
         if (!user) {
             return res.status(400).json({ message: "User not found" });
         }
@@ -80,4 +79,20 @@ export const logoutController = async (req, res) => {
         console.error(error);
         res.status(500).json({ message: "Internal server error", error });
     }
-}; 
+};
+
+// getMe controller
+export const getMeController = async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
+        }
+        res.status(200).json({ message: "User fetched successfully", user });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Internal server error", error });
+    }
+};
+
