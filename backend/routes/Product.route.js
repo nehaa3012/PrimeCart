@@ -6,10 +6,10 @@ import upload from "../middleware/Upload.middleware.js";
 
 const router = express.Router();
 
-router.post("/create", isAuthenticated, authorizeRoles("Admin"), upload.any(), createProductController);
 router.get("/all", getAllProductsController);
 router.get("/:id", getSingleProductController);
-router.put("/:id", isAuthenticated, authorizeRoles("Admin"), upload.any(), updateProductController);
+router.post("/create", isAuthenticated, authorizeRoles("Admin"), upload.array("images", 10), createProductController);
+router.put("/:id", isAuthenticated, authorizeRoles("Admin"), upload.array("images", 10), updateProductController);
 router.delete("/:id", isAuthenticated, authorizeRoles("Admin"), deleteProductController);
 
 export default router;

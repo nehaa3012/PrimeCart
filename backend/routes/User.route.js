@@ -6,7 +6,7 @@ import upload from "../middleware/Upload.middleware.js";
 const router = express.Router();
 
 router.get("/profile", isAuthenticated, getUserProfile);
-router.put("/profile/update", isAuthenticated, upload.any(), updateUserProfile);
+router.put("/profile/update", isAuthenticated, upload.single("avatar"), updateUserProfile);
 router.put("/password/update", isAuthenticated, changePassword);
 router.get("/orders", isAuthenticated, getMyOrders);
 
