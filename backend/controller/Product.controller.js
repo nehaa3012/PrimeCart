@@ -29,10 +29,10 @@ export const createProductController = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({
+        res.status(error.statusCode || 500).json({
             success: false,
-            message: "Failed to create product",
-            error,
+            message: error.message || "Failed to create product",
+            error: error.message,
         });
     }
 };
@@ -49,10 +49,10 @@ export const getAllProductsController = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({
+        res.status(error.statusCode || 500).json({
             success: false,
-            message: "Failed to get products",
-            error,
+            message: error.message || "Failed to get products",
+            error: error.message,
         });
     }
 };
@@ -68,10 +68,10 @@ export const getSingleProductController = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({
+        res.status(error.statusCode || 500).json({
             success: false,
-            message: "Failed to get product",
-            error,
+            message: error.message || "Failed to get product",
+            error: error.message,
         });
     }
 };
@@ -128,10 +128,10 @@ export const updateProductController = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({
+        res.status(error.statusCode || 500).json({
             success: false,
-            message: "Failed to update product",
-            error,
+            message: error.message || "Failed to update product",
+            error: error.message,
         });
     }
 };
@@ -153,10 +153,10 @@ export const deleteProductController = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        res.status(500).json({
+        res.status(error.statusCode || 500).json({
             success: false,
-            message: "Failed to delete product",
-            error,
+            message: error.message || "Failed to delete product",
+            error: error.message,
         });
     }
 };
