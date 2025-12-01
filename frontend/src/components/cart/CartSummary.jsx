@@ -6,4 +6,5 @@ function CartSummary() {
   )
 }
 
-export default CartSummary
+export default CartSummary 
+
