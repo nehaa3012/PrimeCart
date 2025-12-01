@@ -1,12 +1,5 @@
 @import "tailwindcss";
 
-/* Tailwind Dark Mode Configuration */
-@theme {
-    --color-dark-bg: #111827;
-    --color-dark-surface: #1f2937;
-    --color-dark-border: #374151;
-}
-
 /* CSS Variables for Theme Colors */
 :root {
     --bg-primary: #ffffff;

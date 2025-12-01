@@ -171,7 +171,7 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section with Carousel */}
       <section className="relative h-[600px] overflow-hidden mt-16">
         {heroSlides.map((slide, index) => (
@@ -258,7 +258,7 @@ function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
@@ -280,13 +280,13 @@ function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 mb-4">
               Shop by Category
             </h2>
-            <p className="text-gray-600 text-lg">Explore our diverse collection</p>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">Explore our diverse collection</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {categories.map((category, index) => (
@@ -294,7 +294,7 @@ function Home() {
                 key={index}
                 onMouseEnter={() => setHoveredCategory(index)}
                 onMouseLeave={() => setHoveredCategory(null)}
-                className="group relative overflow-hidden rounded-2xl bg-white p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
+                className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 p-6 shadow-lg hover:shadow-2xl dark:shadow-gray-900/50 transition-all duration-300 cursor-pointer transform hover:-translate-y-2"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
                 <div className="relative z-10 text-center space-y-3">
@@ -302,8 +302,8 @@ function Home() {
                     }`}>
                     {category.icon}
                   </div>
-                  <h3 className="font-semibold text-gray-900">{category.name}</h3>
-                  <p className="text-sm text-gray-500">{category.items} items</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-gray-100">{category.name}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{category.items} items</p>
                 </div>
                 <div className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${category.color} transition-all duration-300 ${hoveredCategory === index ? 'w-full' : 'w-0'
                   }`}></div>
@@ -314,18 +314,18 @@ function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center mb-12">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 mb-4">
                 Featured Products
               </h2>
-              <p className="text-gray-600 text-lg">Handpicked items just for you</p>
+              <p className="text-gray-600 dark:text-gray-400 text-lg">Handpicked items just for you</p>
             </div>
             <Link
               to="/products"
-              className="hidden md:flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold group"
+              className="hidden md:flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold group"
             >
               View All
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -335,7 +335,7 @@ function Home() {
             {featuredProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="group relative bg-gradient-to-br from-white to-gray-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                className="group relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl dark:shadow-gray-900/50 transition-all duration-500 transform hover:-translate-y-2"
               >
                 {/* Badge */}
                 <div className="absolute top-4 left-4 z-10">
@@ -349,18 +349,18 @@ function Home() {
                 </div>
 
                 {/* Wishlist Button */}
-                <button className="absolute top-4 right-4 z-10 bg-white/80 backdrop-blur-md p-2 rounded-full hover:bg-white transition-all duration-300 group/heart">
-                  <Heart className="w-5 h-5 text-gray-600 group-hover/heart:text-red-500 group-hover/heart:fill-red-500 transition-all duration-300" />
+                <button className="absolute top-4 right-4 z-10 bg-white/80 dark:bg-gray-700/80 backdrop-blur-md p-2 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-300 group/heart">
+                  <Heart className="w-5 h-5 text-gray-600 dark:text-gray-300 group-hover/heart:text-red-500 group-hover/heart:fill-red-500 transition-all duration-300" />
                 </button>
 
                 {/* Product Image */}
-                <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-500">
+                <div className="h-64 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform duration-500">
                   {product.image}
                 </div>
 
                 {/* Product Info */}
                 <div className="p-6 space-y-3">
-                  <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="font-bold text-lg text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {product.name}
                   </h3>
 
@@ -372,19 +372,19 @@ function Home() {
                           key={i}
                           className={`w-4 h-4 ${i < Math.floor(product.rating)
                               ? 'text-yellow-400 fill-yellow-400'
-                              : 'text-gray-300'
+                              : 'text-gray-300 dark:text-gray-600'
                             }`}
                         />
                       ))}
                     </div>
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-gray-600 dark:text-gray-400">
                       {product.rating} ({product.reviews})
                     </span>
                   </div>
 
                   {/* Price */}
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl font-bold text-gray-900">
+                    <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
                       ${product.price}
                     </span>
                     <span className="text-sm text-gray-400 line-through">
@@ -448,9 +448,9 @@ function Home() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-700 dark:via-purple-700 dark:to-pink-700 rounded-3xl p-12 text-center relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 opacity-20">
               <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse"></div>
               <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -470,7 +470,7 @@ function Home() {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-6 py-4 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
+                  className="flex-1 px-6 py-4 rounded-xl bg-white/20 dark:bg-white/10 backdrop-blur-md border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300"
                 />
                 <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center gap-2">
                   Subscribe
@@ -483,7 +483,7 @@ function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -496,7 +496,7 @@ function Home() {
                 <div className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
