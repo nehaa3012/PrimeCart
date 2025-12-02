@@ -22,10 +22,14 @@ function Login() {
             const response = await axios.post("http://localhost:8000/api/auth/login", data, {
                 withCredentials: true,
             });
-
+            console.log(response.data)
             if (response.data.success || response.status === 200) {
                 toast.success(response.data.message || "Login successful!");
+               if(response.data.role === "Admin") {
+                navigate("/admin");
+               } else {
                 navigate("/");
+               }
             }
         } catch (error) {
             console.error(error);

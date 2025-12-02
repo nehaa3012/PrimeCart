@@ -4,6 +4,9 @@ import { uploadtoCloudinary, deletefromCloudinary } from "../utils/Cloudinary.js
 
 // create product controller
 export const createProductController = async (req, res) => {
+    console.log(req.body);
+    console.log(req.files || req.file)
+
     try {
         validateFiles(getFilesArray(req));
         const images = [];
@@ -18,7 +21,7 @@ export const createProductController = async (req, res) => {
         const product = await Product.create(
             {
                 ...req.body,
-                images,
+                image: images,
                 createdBy: req.user._id,
             }
         );
@@ -40,7 +43,7 @@ export const createProductController = async (req, res) => {
 // get all products controller
 export const getAllProductsController = async (req, res) => {
     try {
-        const products = await Product.find().populate("createdBy");
+        const products = await Product.find();
         res.status(200).json({
             success: true,
             count: products.length,
@@ -60,7 +63,7 @@ export const getAllProductsController = async (req, res) => {
 // get single product controller
 export const getSingleProductController = async (req, res) => {
     try {
-        const product = await Product.findById(req.params.id).populate("createdBy");
+        const product = await Product.findById(req.params.id);
         res.status(200).json({
             success: true,
             product,
@@ -108,7 +111,7 @@ export const updateProductController = async (req, res) => {
         }
 
         if (newImages.length > 0) {
-            req.body.images = newImages;
+            req.body.image = newImages;
         }
 
         product = await Product.findByIdAndUpdate(

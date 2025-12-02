@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { User, Mail, Lock, Phone, MapPin, Loader2, Eye, EyeOff, UserPlus } from "lucide-react";
+import { User, Mail, Lock, Phone, MapPin, Loader2, Eye, EyeOff, UserPlus, Shield } from "lucide-react";
 
 function Register() {
     const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +28,11 @@ function Register() {
 
             if (response.data.success || response.status === 201) {
                 toast.success(response.data.message || "Registration successful!");
-                navigate("/");
+                if(response.data.role === "Admin") {
+                    navigate("/admin");
+                } else {
+                    navigate("/");
+                }
             }
         } catch (error) {
             console.error(error);
@@ -117,6 +121,37 @@ function Register() {
                             </div>
                             {errors.email && (
                                 <p className="mt-1 text-sm text-red-400 pl-1">{errors.email.message}</p>
+                            )}
+                        </div>
+
+                        <div className="group sm:col-span-2">
+                            <label htmlFor="role" className="block text-sm font-medium text-gray-300 mb-1 pl-1">
+                                Account Type
+                            </label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <Shield className="h-5 w-5 text-gray-400 group-focus-within:text-purple-400 transition-colors" />
+                                </div>
+                                <select
+                                    id="role"
+                                    className={`appearance-none block w-full pl-10 pr-10 py-3 bg-gray-900/50 border ${errors.role ? "border-red-500/50 focus:border-red-500 focus:ring-red-500/20" : "border-gray-600 focus:border-purple-500 focus:ring-purple-500/20"
+                                        } rounded-xl text-gray-100 focus:outline-none focus:ring-4 sm:text-sm transition-all duration-300 cursor-pointer`}
+                                    {...register("role", {
+                                        required: "Please select an account type"
+                                    })}
+                                >
+                                    <option value="" className="bg-gray-900 text-gray-400">Select account type</option>
+                                    <option value="User" className="bg-gray-900 text-gray-100">User</option>
+                                    <option value="Admin" className="bg-gray-900 text-gray-100">Admin</option>
+                                </select>
+                                <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                                    <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
+                            </div>
+                            {errors.role && (
+                                <p className="mt-1 text-sm text-red-400 pl-1">{errors.role.message}</p>
                             )}
                         </div>
 

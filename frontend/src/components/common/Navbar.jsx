@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingBag, Menu, X, Search, User, Moon, Sun } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
-
+import { useContext } from "react";
+import CartContext from "../../context/CartContext";
 function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const location = useLocation();
     const { theme, toggleTheme } = useTheme();
-
+    const { cart } = useContext(CartContext);
+   
     // Handle scroll effect
     useEffect(() => {
         const handleScroll = () => {
@@ -95,7 +97,7 @@ function Navbar() {
                         <Link to="/cart" className="relative text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
                             <ShoppingBag className="w-5 h-5" />
                             <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold flex items-center justify-center rounded-full shadow-sm animate-bounce">
-                                0
+                                {cart.length}
                             </span>
                         </Link>
                     </div>
@@ -157,7 +159,7 @@ function Navbar() {
                             onClick={() => setIsOpen(false)}
                             className="block px-4 py-3 rounded-xl text-base font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
                         >
-                            Cart (0)
+                            Cart ({cart.length})
                         </Link>
                     </div>
                 </div>

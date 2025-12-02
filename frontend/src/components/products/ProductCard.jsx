@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCart, Heart, Eye, Star } from 'lucide-react';
 import toast from 'react-hot-toast';
+import CartContext from '../../context/CartContext';
+import { useContext } from 'react';
 
 function ProductCard({ product }) {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const { cart, setCart } = useContext(CartContext);
+  console.log(cart);
 
   // Calculate discount percentage
   const discountPercentage = product.discountPrice
@@ -20,7 +25,7 @@ function ProductCard({ product }) {
   const handleAddToCart = (e) => {
     e.preventDefault();
     toast.success(`${product.title} added to cart!`);
-    // TODO: Implement actual cart functionality
+    setCart([...cart, product]);
   };
 
   const handleWishlist = (e) => {
