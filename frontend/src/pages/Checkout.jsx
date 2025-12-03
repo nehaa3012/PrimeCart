@@ -412,7 +412,7 @@ function Checkout() {
                   {cart.map((item) => (
                     <div key={item._id} className="flex gap-3">
                       <img
-                        src={item.image || '/placeholder-product.jpg'}
+                        src={item.image?.[0]?.secure_url || '/placeholder-product.jpg'}
                         alt={item.title}
                         className="w-16 h-16 rounded-lg object-cover bg-gray-100 dark:bg-gray-700"
                       />

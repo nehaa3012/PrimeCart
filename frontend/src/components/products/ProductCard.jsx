@@ -19,7 +19,7 @@ function ProductCard({ product }) {
       {/* Image Container */}
       <div className="relative aspect-[4/5] overflow-hidden bg-gray-100 dark:bg-gray-700">
         <img
-          src={product.image || '/placeholder-product.jpg'}
+          src={product.image?.[0]?.secure_url || '/placeholder-product.jpg'}
           alt={product.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
@@ -66,8 +66,8 @@ function ProductCard({ product }) {
               <Star
                 key={i}
                 className={`w-4 h-4 ${i < Math.floor(product.rating || 0)
-                    ? 'fill-current'
-                    : 'text-gray-300 dark:text-gray-600'
+                  ? 'fill-current'
+                  : 'text-gray-300 dark:text-gray-600'
                   }`}
               />
             ))}

@@ -29,7 +29,7 @@ function CartItem({ item }) {
         {/* Product Image */}
         <div className="relative flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-700">
           <img
-            src={item.image || '/placeholder-product.jpg'}
+            src={item.image?.[0]?.secure_url || '/placeholder-product.jpg'}
             alt={item.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
           />
