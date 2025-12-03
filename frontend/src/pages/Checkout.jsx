@@ -161,8 +161,8 @@ function Checkout() {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border ${errors.fullName
-                            ? 'border-red-500 focus:ring-red-500'
-                            : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                          ? 'border-red-500 focus:ring-red-500'
+                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                           } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                         placeholder="John Doe"
                       />
@@ -185,8 +185,8 @@ function Checkout() {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border ${errors.email
-                            ? 'border-red-500 focus:ring-red-500'
-                            : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                          ? 'border-red-500 focus:ring-red-500'
+                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                           } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                         placeholder="john@example.com"
                       />
@@ -209,8 +209,8 @@ function Checkout() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`w-full pl-10 pr-4 py-3 rounded-lg border ${errors.phone
-                            ? 'border-red-500 focus:ring-red-500'
-                            : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                          ? 'border-red-500 focus:ring-red-500'
+                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                           } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                         placeholder="1234567890"
                       />
@@ -231,8 +231,8 @@ function Checkout() {
                       value={formData.address}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.address
-                          ? 'border-red-500 focus:ring-red-500'
-                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                        ? 'border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                         } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                       placeholder="123 Main Street"
                     />
@@ -252,8 +252,8 @@ function Checkout() {
                       value={formData.city}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.city
-                          ? 'border-red-500 focus:ring-red-500'
-                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                        ? 'border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                         } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                       placeholder="Mumbai"
                     />
@@ -273,8 +273,8 @@ function Checkout() {
                       value={formData.state}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.state
-                          ? 'border-red-500 focus:ring-red-500'
-                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                        ? 'border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                         } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                       placeholder="Maharashtra"
                     />
@@ -294,8 +294,8 @@ function Checkout() {
                       value={formData.postalCode}
                       onChange={handleInputChange}
                       className={`w-full px-4 py-3 rounded-lg border ${errors.postalCode
-                          ? 'border-red-500 focus:ring-red-500'
-                          : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+                        ? 'border-red-500 focus:ring-red-500'
+                        : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
                         } bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 transition-all`}
                       placeholder="400001"
                     />
@@ -424,7 +424,7 @@ function Checkout() {
                           Qty: {item.quantity}
                         </p>
                         <p className="text-sm font-semibold text-gray-900 dark:text-white">
-                          ₹{(item.price * item.quantity).toFixed(2)}
+                          ₹{((Number(item.price) || 0) * (Number(item.quantity) || 0)).toFixed(2)}
                         </p>
                       </div>
                     </div>

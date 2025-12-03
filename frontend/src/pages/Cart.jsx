@@ -75,8 +75,8 @@ function Cart() {
                 </Link>
               </div>
 
-              {cart.map((item) => (
-                <CartItem key={item._id} item={item} />
+              {cart.map((item, index) => (
+                <CartItem key={`${item._id}-${index}`} item={item} />
               ))}
             </div>
 

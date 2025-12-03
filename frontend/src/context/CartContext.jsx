@@ -58,14 +58,21 @@ export const CartProvider = ({ children }) => {
         toast.success('Cart cleared');
     };
 
-    // Get cart total
+    // Get cart total with validation
     const getCartTotal = () => {
-        return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        return cart.reduce((total, item) => {
+            const price = Number(item.price) || 0;
+            const quantity = Number(item.quantity) || 0;
+            return total + (price * quantity);
+        }, 0);
     };
 
-    // Get cart item count
+    // Get cart item count with validation
     const getCartCount = () => {
-        return cart.reduce((count, item) => count + item.quantity, 0);
+        return cart.reduce((count, item) => {
+            const quantity = Number(item.quantity) || 0;
+            return count + quantity;
+        }, 0);
     };
 
     return (

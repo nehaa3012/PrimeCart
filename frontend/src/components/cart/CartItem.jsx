@@ -5,13 +5,17 @@ import CartContext from '../../context/CartContext';
 function CartItem({ item }) {
   const { updateQuantity, removeFromCart } = useContext(CartContext);
 
+  // Ensure price and quantity are valid numbers
+  const price = Number(item.price) || 0;
+  const quantity = Number(item.quantity) || 1;
+
   const handleIncrement = () => {
-    updateQuantity(item._id, item.quantity + 1);
+    updateQuantity(item._id, quantity + 1);
   };
 
   const handleDecrement = () => {
-    if (item.quantity > 1) {
-      updateQuantity(item._id, item.quantity - 1);
+    if (quantity > 1) {
+      updateQuantity(item._id, quantity - 1);
     }
   };
 
@@ -62,13 +66,13 @@ function CartItem({ item }) {
                 <button
                   onClick={handleDecrement}
                   className="p-1.5 rounded-md hover:bg-white dark:hover:bg-gray-600 text-gray-700 dark:text-gray-300 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={item.quantity <= 1}
+                  disabled={quantity <= 1}
                   aria-label="Decrease quantity"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
                 <span className="w-8 text-center font-semibold text-gray-900 dark:text-white">
-                  {item.quantity}
+                  {quantity}
                 </span>
                 <button
                   onClick={handleIncrement}
@@ -85,11 +89,11 @@ function CartItem({ item }) {
               <span className="text-sm text-gray-600 dark:text-gray-400">Price:</span>
               <div className="text-right">
                 <p className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-                  ₹{(item.price * item.quantity).toFixed(2)}
+                  ₹{(price * quantity).toFixed(2)}
                 </p>
-                {item.quantity > 1 && (
+                {quantity > 1 && (
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    ₹{item.price.toFixed(2)} each
+                    ₹{price.toFixed(2)} each
                   </p>
                 )}
               </div>
