@@ -58,7 +58,7 @@ function OrderCard({ order }) {
                 {order.items?.map((item, index) => (
                     <div key={index} className="relative flex-shrink-0">
                         <img
-                            src={item.product?.image || '/placeholder-product.jpg'}
+                            src={item.product?.image?.[0]?.secure_url || '/placeholder-product.jpg'}
                             alt={item.product?.title}
                             className="w-16 h-16 rounded-lg object-cover bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600"
                         />
