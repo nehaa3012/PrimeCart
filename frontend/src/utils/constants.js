@@ -109,7 +109,7 @@ export const API_ENDPOINTS = {
         LOGOUT: '/auth/logout',
     },
     ORDERS: {
-        ALL: '/orders/all',
+        ALL: 'orders/myorders',
         SINGLE: (id) => `/orders/${id}`,
         CREATE: '/orders/create',
     },

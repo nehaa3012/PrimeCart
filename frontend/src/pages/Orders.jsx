@@ -17,55 +17,58 @@ function Orders() {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      // In a real app, this would fetch from API
-      // const data = await orderService.getUserOrders();
-      // setOrders(data.orders);
-
-      // Mock data for demonstration
-      setTimeout(() => {
-        setOrders([
-          {
-            _id: 'ORD-2023-001',
-            createdAt: new Date().toISOString(),
-            status: 'processing',
-            totalAmount: 4598.00,
-            items: [
-              {
-                product: {
-                  title: 'Premium Wireless Headphones',
-                  image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500'
-                },
-                quantity: 1
-              },
-              {
-                product: {
-                  title: 'Designer Backpack',
-                  image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500'
-                },
-                quantity: 1
-              }
-            ]
-          },
-          {
-            _id: 'ORD-2023-002',
-            createdAt: new Date(Date.now() - 86400000 * 5).toISOString(),
-            status: 'delivered',
-            totalAmount: 2999.00,
-            items: [
-              {
-                product: {
-                  title: 'Smart Watch Series 5',
-                  image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500'
-                },
-                quantity: 1
-              }
-            ]
-          }
-        ]);
+      console.log('Fetching orders...');
+      const response = await orderService.getUserOrders();
+      console.log('API Response:', response);
+      
+      // Check if response.orders exists and is an array
+      if (!response || !Array.isArray(response.orders)) {
+        console.error('Invalid response format - expected array of orders:', response);
+        setOrders([]);
         setLoading(false);
-      }, 1000);
+        return;
+      }
+
+      // Log the raw orders data
+      console.log('Raw orders data:', response.orders);
+      
+      // Transform the API response to match the expected order format
+      const formattedOrders = response.orders.map(order => {
+        console.log('Processing order:', order._id, order);
+        return {
+          _id: order._id,
+          createdAt: order.createdAt || new Date().toISOString(),
+          status: order.status || 'processing',
+          totalAmount: order.totalAmount || 0,
+          items: (order.items || []).map(item => {
+            console.log('Processing order item:', item);
+            return {
+              product: {
+                _id: item.product?._id || 'unknown',
+                title: item.product?.name || item.product?.title || 'Product',
+                image: item.product?.images?.[0] || item.product?.image || 'https://via.placeholder.com/150',
+                price: item.product?.price || 0
+              },
+              quantity: item.quantity || 1
+            };
+          })
+        };
+      });
+      
+      console.log('Formatted orders:', formattedOrders);
+      setOrders(formattedOrders);
     } catch (error) {
-      console.error('Error fetching orders:', error);
+      console.error('Error fetching orders:', {
+        message: error.message,
+        response: error.response?.data,
+        status: error.response?.status,
+        config: {
+          url: error.config?.url,
+          method: error.config?.method,
+          headers: error.config?.headers
+        }
+      });
+    } finally {
       setLoading(false);
     }
   };

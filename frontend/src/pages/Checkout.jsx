@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { CreditCard, Wallet, Banknote, MapPin, Mail, Phone, User, FileText } from 'lucide-react';
 import CartContext from '../context/CartContext';
 import toast from 'react-hot-toast';
+import { createOrder } from '../services/orderService';
 
 function Checkout() {
   const { cart, getCartTotal, clearCart } = useContext(CartContext);
@@ -63,7 +64,7 @@ function Checkout() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handlePlaceOrder = (e) => {
+  const handlePlaceOrder = async (e) => {
     e.preventDefault();
 
     if (cart.length === 0) {
@@ -76,10 +77,66 @@ function Checkout() {
       return;
     }
 
-    // Simulate order placement
-    toast.success('Order placed successfully!');
-    clearCart();
-    navigate('/orders');
+    try {
+      // Prepare order items with correct image format
+      const orderItems = cart.map(item => ({
+        product: item._id,
+        name: item.name || item.title,
+        price: item.price,
+        image: Array.isArray(item.images) && item.images[0]?.secure_url 
+          ? item.images[0].secure_url 
+          : (typeof item.image === 'string' ? item.image : ''),
+        quantity: item.quantity || 1
+      }));
+
+      // Prepare shipping address
+      const shippingAddress = {
+        fullName: formData.fullName,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        postalCode: formData.postalCode,
+        phone: formData.phone,
+        email: formData.email
+      };
+
+      // Map payment method to match backend enum values
+      const paymentMethodMap = {
+        'cod': 'Cash On Delivery',
+        'card': 'Card',
+        'upi': 'UPI'
+      };
+
+      // Create order data object with correct status and payment method
+      const orderData = {
+        OrderItem: orderItems,
+        ShippingAddress: shippingAddress,
+        totalAmount: total,
+        paymentMethod: paymentMethodMap[formData.paymentMethod] || 'Cash On Delivery',
+        status: 'Processing', // Using correct status value
+        orderNotes: formData.orderNotes || ''
+      };
+
+      console.log('Sending order data:', orderData);
+      
+      // Call the createOrder API
+      const response = await createOrder(orderData);
+      
+      if (response.success) {
+        toast.success('Order placed successfully!');
+        clearCart();
+        navigate('/orders');
+      } else {
+        throw new Error(response.message || 'Failed to place order');
+      }
+    } catch (error) {
+      console.error('Order placement error:', error);
+      // Show more detailed error message if available
+      const errorMessage = error.response?.data?.message || 
+                         error.message || 
+                         'Failed to place order. Please try again.';
+      toast.error(errorMessage);
+    }
   };
 
   if (cart.length === 0) {
