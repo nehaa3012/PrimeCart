@@ -94,37 +94,37 @@ Backend API: _Coming Soon_
 primecart/
 │
 ├── backend/
-│   ├── config              # Database & third-party configurations
-│   ├── controller          # Controllers (Auth, Product, Order, Admin)
-│   ├── middleware          # Authentication, role & upload middleware
-│   ├── models              # Database schemas
-│   ├── routes              # API routes
-│   ├── utils               # Cloudinary & helper utilities
-│   └── index.js            # Backend entry point
-│
+│   ├── config              # Database & third-party configurations                                                                                                                             
+│   ├── controller          # Controllers (Auth, Product, Order, Admin)                                                                                                                             
+│   ├── middleware          # Authentication, role & upload middleware                                                                                                                          
+│   ├── models              # Database schemas                                                                                                                                                      
+│   ├── routes              # API routes                                                                                                                                                    
+│   ├── utils               # Cloudinary & helper utilities                                                                                                                                           
+│   └── index.js            # Backend entry point                                                                                                                                                         
+│                                                                                                                                                                                                        
 ├── frontend/
-│   ├── public              # Static assets
-│   │
-│   ├── src
-│   │   ├── components      # Reusable UI components
-│   │   │   ├── cart
-│   │   │   ├── common
-│   │   │   ├── home
-│   │   │   ├── orders
-│   │   │   ├── products
-│   │   │   └── ui
+│   ├── public              # Static assets                                                                                                                                                            
+│   │                                                                                                                                                                                                 
+│   ├── src                                                                                                                                                                                           
+│   │   ├── components      # Reusable UI components                                                                                                                                                      
+│   │   │   ├── cart                                                                                                                                                                                    
+│   │   │   ├── common                                                                                                                                                                                  
+│   │   │   ├── home                                                                                                                                                                                    
+│   │   │   ├── orders                                                                                                                                                                                   
+│   │   │   ├── products                                                                                                                                                                                    
+│   │   │   └── ui                                                                                                                                                                                             
 │   │   │
-│   │   ├── context         # Global state (Cart, Theme)
-│   │   ├── lib             # Shared utilities
-│   │   ├── pages           # Application pages
-│   │   ├── services        # API service layer
-│   │   ├── utils           # Constants & helpers
-│   │   │
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   │
-│   └── config files        # Vite, ESLint, package.json
-│
-└── README.md
+│   │   ├── context         # Global state (Cart, Theme)                                                                                                                                                    
+│   │   ├── lib             # Shared utilities                                                                                                                                                                    
+│   │   ├── pages           # Application pages                                                                                                                                                              
+│   │   ├── services        # API service layer                                                                                                                                                          
+│   │   ├── utils           # Constants & helpers                                                                                                                                                       
+│   │   │                                                                                                                                                                                                         
+│   │   ├── App.jsx                                                                                                                                                                                  
+│   │   ├── main.jsx                                                                                                                                                                              
+│   │   └── index.css                                                                                                                                                          
+│   │                                                                                                                                                                                             
+│   └── config files        # Vite, ESLint, package.json                                                                                                                                               
+│                                                                                                                                                                                               
+└── README.md                                                                                                                                                                              
 
