@@ -148,3 +148,47 @@ primecart/
 │                                                                                                                                                                                               
 └── README.md                                                                                                                                                                              
 
+
+---
+
+## 👥 User Roles & Features
+
+### 🛒 Users
+- Register & login securely
+- Browse all products (all categories loaded automatically)
+- View product details
+- Add products to cart
+- Place orders
+- View order history
+- Update profile & avatar
+- Change password
+
+### 🧑‍💼 Admin
+- Access admin dashboard
+- Create / update / delete products
+- Upload multiple product images
+- Manage users & roles
+- View & manage orders
+- Update order status
+- View analytics & stats
+
+---
+
+## 🔧 Installation & Setup
+
+### Prerequisites
+- Node.js (v16+)
+- MongoDB Atlas
+- Cloudinary account
+
+---
+
+### Frontend Setup
+
+```bash
+git clone https://github.com/your-username/primecart.git
+cd primecart/client
+
+npm install
+npm run dev
+
