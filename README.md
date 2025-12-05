@@ -183,7 +183,8 @@ primecart/
 
 ---
 
-Frontend Setup
+## **🔧 Frontend Setup**
+
 Clone the repository
 git clone https://github.com/your-username/primecart.git
 cd primecart/frontend
