@@ -183,8 +183,7 @@ primecart/
 
 ---
 
-### Frontend Setup
-
+Frontend Setup
 # Clone the repository
 git clone https://github.com/your-username/primecart.git
 cd primecart/frontend
@@ -200,7 +199,6 @@ VITE_API_URL=http://localhost:5000/api
 
 # Start development server
 npm run dev
-
 
 
 
