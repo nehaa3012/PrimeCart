@@ -332,7 +332,7 @@ LinkedIn: Add your LinkedIn
 
 ---
 
-Made with ❤️ and ☕ by ### **Neha Chaudhary**
+Made with ❤️ and ☕ by **Neha Chaudhary**
 
 
 
