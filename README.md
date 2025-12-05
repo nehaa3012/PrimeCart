@@ -203,9 +203,10 @@ VITE_API_URL=http://localhost:5000/api
 # Start development server
 npm run dev
 
+```
 
 ---
-
+  
 ## **⚙️ Backend Setup**
 
 ```bash
@@ -230,4 +231,4 @@ CLOUDINARY_API_SECRET=your_cloudinary_secret
 # Start development server
 npm run dev
 
-
+```
