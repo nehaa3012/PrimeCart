@@ -187,8 +187,16 @@ primecart/
 
 ```bash
 git clone https://github.com/your-username/primecart.git
-cd primecart/client
+cd primecart/frontend
 
 npm install
 npm run dev
 
+### Backend Setup
+
+```bash
+
+cd ../backend
+
+npm install
+npm run dev
