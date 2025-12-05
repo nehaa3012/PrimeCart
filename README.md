@@ -185,18 +185,20 @@ primecart/
 
 ### Frontend Setup
 
-```bash
+# Clone the repository
 git clone https://github.com/your-username/primecart.git
 cd primecart/frontend
 
+# Install dependencies
 npm install
+
+# Create environment file
+cp .env.example .env
+
+# Add your environment variables
+VITE_API_URL=http://localhost:5000/api
+
+# Start development server
 npm run dev
 
-### Backend Setup
 
-```bash
-
-cd ../backend
-
-npm install
-npm run dev
