@@ -201,5 +201,28 @@ VITE_API_URL=http://localhost:5000/api
 Start development server
 npm run dev
 
+---
+
+## **⚙️ Backend Setup**
+
+# Navigate to backend directory
+cd ../backend
+
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env
+
+# Add your environment variables
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+CLOUDINARY_API_KEY=your_cloudinary_key
+CLOUDINARY_API_SECRET=your_cloudinary_secret
+
+# Start development server
+npm run dev
 
 
