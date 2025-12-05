@@ -1,13 +1,33 @@
 # **🛒 PrimeCart – Full Stack E-Commerce Platform**
 
+<div align="center">
 
-A modern, scalable, and secure e-commerce platform built with the MERN stack, delivering a smooth shopping experience with role-based access and a powerful admin dashboard.
+# 🛒 **PrimeCart**
 
-Live Demo | Backend API
+### A modern, scalable, and secure e-commerce platform built with the MERN stack,  
+### delivering a seamless shopping experience with role-based access and a powerful admin dashboard.
 
-React • Node.js • MongoDB • Express.js • Tailwind CSS
+<br />
+
+<a href="https://your-frontend-url.com">
+  <img src="https://img.shields.io/badge/🌐%20Live%20Demo-000000?style=for-the-badge" />
+</a>
+<a href="https://your-backend-api-url.com">
+  <img src="https://img.shields.io/badge/🔗%20Backend%20API-1f6feb?style=for-the-badge" />
+</a>
+
+<br /><br />
+
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react" />
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
+<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+
+</div>
 
 ---
+
 
 ## 📱 About PrimeCart
 
