@@ -235,13 +235,50 @@ npm run dev
 
 ## **🧪 API Testing**
 
-All APIs tested using Postman
+- All APIs tested using Postman
+- Authentication, role protection, image uploads, and CRUD operations validated
+- Cookie-based authentication enabled
 
-Authentication, role protection, image uploads, and CRUD operations validated
+---
 
-Cookie-based authentication enabled
+## **🚦 API Endpoints**
 
-
+# Authentication
+```
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/logout
+GET  /api/auth/me
+```
+# Products
+```
+GET    /api/products
+GET    /api/products/:id
+POST   /api/products        (Admin)
+PUT    /api/products/:id    (Admin)
+DELETE /api/products/:id    (Admin)
+```
+# Orders
+```
+POST /api/orders
+GET  /api/orders/me
+PUT  /api/orders/:id        (Admin)
+```
+# Users
+```
+GET /api/users/me
+PUT /api/users/me/update
+PUT /api/users/me/password
+GET /api/users/me/orders
+```
+# Admin
+```
+GET /api/admin/users
+PUT /api/admin/users/:id
+DELETE /api/admin/users/:id
+GET /api/admin/orders
+GET /api/admin/stats
+```
 
 
 
