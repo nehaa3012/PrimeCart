@@ -322,7 +322,7 @@ GET /api/admin/stats
 GitHub: @your-github-username
 LinkedIn: Add your LinkedIn
 
-🙏 Acknowledgments
+## 🙏 Acknowledgments
 
 - React & Node.js community
 - Tailwind CSS
@@ -330,7 +330,9 @@ LinkedIn: Add your LinkedIn
 - Cloudinary
 - Render Hosting
 
-Made with ❤️ and ☕ by Neha Chaudhary
+---
+
+Made with ❤️ and ☕ by ### **Neha Chaudhary**
 
 
 
