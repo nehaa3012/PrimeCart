@@ -92,8 +92,11 @@ Backend API: _Coming Soon_
 ## 🏗️ Project Structure
 
 primecart/
-├── client/ # React frontend
+
+├── client/                # React frontend
+
 │ ├── src/
+
 │ │ ├── components/        # Reusable UI components
 
 │ │ ├── pages/             # Application pages
