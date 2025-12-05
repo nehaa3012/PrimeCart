@@ -232,3 +232,33 @@ CLOUDINARY_API_SECRET=your_cloudinary_secret
 npm run dev
 
 ```
+
+## **🧪 API Testing**
+
+All APIs tested using Postman
+
+Authentication, role protection, image uploads, and CRUD operations validated
+
+Cookie-based authentication enabled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
