@@ -302,7 +302,7 @@ GET /api/admin/stats
 
 ---
 
-##🔮 Future Enhancements
+## 🔮 Future Enhancements
 
 - Payment gateway (Stripe / Razorpay)
 - Wishlist functionality
