@@ -92,25 +92,23 @@ Backend API: _Coming Soon_
 ## 🏗️ Project Structure
 
 primecart/
-
-├── client/                # React frontend
+├── client/ # React frontend
 │ ├── src/
-│ │ ├── components/        # Reusable UI components
-│ │ ├── pages/             # Application pages
-│ │ ├── context/           # Global state (Auth, Cart)
-│ │ ├── services/          # API layer
-│ │ ├── routes/            # Protected routes
-│ │ └── utils/             # Helpers & constants
+│ │ ├── components/ # Reusable UI components
+│ │ ├── pages/ # Application pages
+│ │ ├── context/ # Global state (Auth, Cart)
+│ │ ├── services/ # API layer
+│ │ ├── routes/ # Protected routes
+│ │ └── utils/ # Helpers & constants
 │ └── vite.config.js
 │
-
-├── server/               # Backend API
-│ ├── controllers/        # Business logic
-│ ├── models/             # Mongoose schemas
-│ ├── routes/             # API routes
-│ ├── middleware/         # Auth, role & upload middleware
-│ ├── utils/              # Cloudinary & helpers
-│ ├── app.js     
-│ └── server.js            
+├── server/ # Backend API
+│ ├── controllers/ # Business logic
+│ ├── models/ # Mongoose schemas
+│ ├── routes/ # API routes
+│ ├── middleware/ # Auth, role & upload middleware
+│ ├── utils/ # Cloudinary & helpers
+│ ├── app.js
+│ └── server.js
 │
-└── README.md              
+└── README.md
