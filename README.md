@@ -316,11 +316,10 @@ GET /api/admin/stats
 
 ## 👩‍💻 Developer
 
-- Neha Chaudhary
-- MERN Stack Developer
+- Neha Chaudhary - **MERN Stack Developer**
 
-GitHub: @your-github-username
-LinkedIn: Add your LinkedIn
+- GitHub: [@nehaa3012](https://github.com/nehaa3012)                                                                                                                                                                                     
+- Email: nehach782@gmail.com
 
 ## 🙏 Acknowledgments
 
