@@ -92,8 +92,8 @@ Backend API: _Coming Soon_
 ## 🏗️ Project Structure
 
 primecart/
-│
-├── backend/
+│                                                                                                                                                                                                      
+├── backend/                                                                                                                                                                                    
 │   ├── config              # Database & third-party configurations                                                                                                                             
 │   ├── controller          # Controllers (Auth, Product, Order, Admin)                                                                                                                             
 │   ├── middleware          # Authentication, role & upload middleware                                                                                                                          
@@ -102,7 +102,7 @@ primecart/
 │   ├── utils               # Cloudinary & helper utilities                                                                                                                                           
 │   └── index.js            # Backend entry point                                                                                                                                                         
 │                                                                                                                                                                                                        
-├── frontend/
+├── frontend/                                                                                                                                                                                     
 │   ├── public              # Static assets                                                                                                                                                            
 │   │                                                                                                                                                                                                 
 │   ├── src                                                                                                                                                                                           
