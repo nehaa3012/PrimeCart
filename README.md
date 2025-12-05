@@ -192,7 +192,6 @@ cd primecart/frontend
 # Install dependencies
 npm install
 
-
 # Create environment file
 cp .env.example .env
 
@@ -201,6 +200,7 @@ VITE_API_URL=http://localhost:5000/api
 
 # Start development server
 npm run dev
+
 
 ---
 
