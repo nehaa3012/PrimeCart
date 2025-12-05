@@ -91,7 +91,7 @@ Backend API: _Coming Soon_
 
 ## 🏗️ Project Structure
 
-primecart/
+primecart/                                                                                                                                                                                                  
 │                                                                                                                                                                                                      
 ├── backend/                                                                                                                                                                                    
 │   ├── config              # Database & third-party configurations                                                                                                                             
