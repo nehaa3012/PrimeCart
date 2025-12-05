@@ -279,7 +279,15 @@ DELETE /api/admin/users/:id
 GET /api/admin/orders
 GET /api/admin/stats
 ```
+---
 
+## 🎨 Design System
+
+Minimal & clean UI
+Responsive layouts
+Smooth hover animations
+Consistent spacing & typography
+Tailwind utility-first approach
 
 
 
