@@ -92,23 +92,39 @@ Backend API: _Coming Soon_
 ## 🏗️ Project Structure
 
 primecart/
-├── client/ # React frontend
-│ ├── src/
-│ │ ├── components/ # Reusable UI components
-│ │ ├── pages/ # Application pages
-│ │ ├── context/ # Global state (Auth, Cart)
-│ │ ├── services/ # API layer
-│ │ ├── routes/ # Protected routes
-│ │ └── utils/ # Helpers & constants
-│ └── vite.config.js
 │
-├── server/ # Backend API
-│ ├── controllers/ # Business logic
-│ ├── models/ # Mongoose schemas
-│ ├── routes/ # API routes
-│ ├── middleware/ # Auth, role & upload middleware
-│ ├── utils/ # Cloudinary & helpers
-│ ├── app.js
-│ └── server.js
+├── backend/
+│   ├── config              # Database & third-party configurations
+│   ├── controller          # Controllers (Auth, Product, Order, Admin)
+│   ├── middleware          # Authentication, role & upload middleware
+│   ├── models              # Database schemas
+│   ├── routes              # API routes
+│   ├── utils               # Cloudinary & helper utilities
+│   └── index.js            # Backend entry point
+│
+├── frontend/
+│   ├── public              # Static assets
+│   │
+│   ├── src
+│   │   ├── components      # Reusable UI components
+│   │   │   ├── cart
+│   │   │   ├── common
+│   │   │   ├── home
+│   │   │   ├── orders
+│   │   │   ├── products
+│   │   │   └── ui
+│   │   │
+│   │   ├── context         # Global state (Cart, Theme)
+│   │   ├── lib             # Shared utilities
+│   │   ├── pages           # Application pages
+│   │   ├── services        # API service layer
+│   │   ├── utils           # Constants & helpers
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   └── config files        # Vite, ESLint, package.json
 │
 └── README.md
+
