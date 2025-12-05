@@ -72,8 +72,8 @@ The platform supports **secure authentication**, **role-based access control (RB
 
 ## 🚀 Live Demo
 
-Frontend: fascinating-melba-f9ff0c.netlify.app/                                                                                                                                
-Backend API: _Coming Soon_
+**Frontend:** [fascinating-melba-f9ff0c.netlify.app](https://fascinating-melba-f9ff0c.netlify.app/)  
+**Backend API:** [blog-backend-njkp.onrender.com](https://blog-backend-njkp.onrender.com/)
 
 ---
 
