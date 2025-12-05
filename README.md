@@ -323,11 +323,11 @@ GET /api/admin/stats
 
 ## 🙏 Acknowledgments
 
-- React & Node.js community
-- Tailwind CSS
-- MongoDB
-- Cloudinary
-- Render Hosting
+- **React & Node.js Community** – Documentation and ecosystem support
+- **Tailwind CSS** – Utility-first UI styling
+- **MongoDB** – Flexible NoSQL database
+- **Cloudinary** – Image storage and optimization
+- **Render & Netlify** – Backend and frontend hosting
 
 ---
 
