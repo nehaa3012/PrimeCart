@@ -243,14 +243,14 @@ npm run dev
 
 ## **🚦 API Endpoints**
 
-# Authentication
+### Authentication
 ```
 POST /api/auth/register
 POST /api/auth/login
 POST /api/auth/logout
 GET  /api/auth/me
 ```
-# Products
+### Products
 ```
 GET    /api/products
 GET    /api/products/:id
@@ -258,20 +258,20 @@ POST   /api/products        (Admin)
 PUT    /api/products/:id    (Admin)
 DELETE /api/products/:id    (Admin)
 ```
-# Orders
+### Orders
 ```
 POST /api/orders
 GET  /api/orders/me
 PUT  /api/orders/:id        (Admin)
 ```
-# Users
+### Users
 ```
 GET /api/users/me
 PUT /api/users/me/update
 PUT /api/users/me/password
 GET /api/users/me/orders
 ```
-# Admin
+### Admin
 ```
 GET /api/admin/users
 PUT /api/admin/users/:id
