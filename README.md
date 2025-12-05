@@ -185,6 +185,8 @@ primecart/
 
 ## **🔧 Frontend Setup**
 
+```bash
+
 # Clone the repository
 git clone https://github.com/your-username/primecart.git
 cd primecart/frontend
@@ -205,6 +207,8 @@ npm run dev
 ---
 
 ## **⚙️ Backend Setup**
+
+```bash
 
 # Navigate to backend directory
 cd ../backend
