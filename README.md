@@ -1,5 +1,5 @@
 🛒 PrimeCart – Full Stack E-Commerce Platform
-PrimeCart Logo
+
 
 A modern, scalable, and secure e-commerce platform built with the MERN stack, delivering a smooth shopping experience with role-based access and a powerful admin dashboard.
 
