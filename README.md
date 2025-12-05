@@ -283,34 +283,34 @@ GET /api/admin/stats
 
 ## 🎨 Design System
 
-- Minimal & clean UI
-- Responsive layouts
-- Smooth hover animations
-- Consistent spacing & typography
-- Tailwind utility-first approach
+- **Minimal UI** – Clean and modern
+- **Responsive Layout** – Mobile-first design
+- **Soft Shadows** – Card-based UI
+- **Consistent Spacing** – Balanced layout
+- **Smooth Interactions** – Subtle animations
+- **Tailwind CSS** – Utility-first styling
 
 ---
 
 ## 🧠 Learning Outcomes
 
-- MERN stack architecture (MVC)
-- Secure JWT authentication with cookies
-- Role-based authorization
-- Cloudinary image handling using Multer memory storage
-- Admin dashboard design
-- Scalable code organization
+- **MERN Architecture** – Full-stack flow
+- **JWT Authentication** – Secure sessions
+- **Role-Based Access** – Admin and user roles
+- **Image Handling** – Multer & Cloudinary
+- **State Management** – Context API
+- **REST APIs** – Scalable backend design
 
 ---
 
 ## 🔮 Future Enhancements
 
-- Payment gateway (Stripe / Razorpay)
-- Wishlist functionality
-- Product reviews & ratings UI
-- Coupons & discounts
-- Pagination & infinite scrolling
-- Email notifications
-- Seller role support
+- **Online Payments** – Stripe / Razorpay integration
+- **Product Reviews** – Ratings and feedback
+- **Wishlist Feature** – Save for later
+- **Coupons System** – Discounts and offers
+- **Pagination** – Efficient browsing
+- **Email Notifications** – Order updates
 
 ---
 
